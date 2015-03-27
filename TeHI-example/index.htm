@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+Редактор Уравнений ЛаТеХ http://ru.numberempire.com/texequationeditor/equationeditor.php
+(9. Математика) http://mgena.chat.ru/latex/indru.html
+Введение в TeX http://mmcs.sfedu.ru/docmanupload/doc_download/788-latexshiryaevapart2
+
+
+http://www.w3.org/TR/html5/text-level-semantics.html#the-var-element
+http://htmlbook.ru/html/var
+http://htmlbook.ru/html/acronym
+http://htmlbook.ru/html/dfn (термин)
+http://htmlbook.ru/html/meter
+http://htmlbook.ru/html/samp (output)
+
+http://htmlbook.ru/css/counter-reset
+http://htmlbook.ru/faq/kak-izmenit-vid-napisaniya-chisel-v-spiske
+
+<figure> и <figcaption> http://web-standards.ru/articles/figure-figcaption/#comment-683
+Сite и blockquote: перезагрузка http://web-standards.ru/articles/cite-blockquote-reloaded/
+	http://oli.jp/example/blockquote-metadata/
+
+Избегаем популярных ошибок в HTML5 http://web-standards.ru/articles/avoiding-html5-mistakes
+	http://html5doctor.com/outlines
+
+-->
+
+<!-- //TODO: Добавить модуль для построения графиков (по массиву точек) -->
+<!-- //TODO: Продумать концепцию и вид ссылок на источники -->
+<!-- //TODO: Продумать концепцию и вид пояснения переменных у формулы. Старый вид: ", где ..." -->
+<!-- //TODO: Заменить цвет ссылок на формулы на более нейтральный -->
+<!-- //TODO: Пересмотреть стиль подсвечивания строк в коде -->
+<!-- //TODO: Добавить атрибут src в <pre><code src="..." data-begin="" data-end=""></code></pre>, для загрузки строк (начиная с begin по end) кода из внешнего файла -->
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TeHI - example</title>
+	
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="syntaxhighlighter/styles/shCore.css">
+	<link rel="stylesheet" href="syntaxhighlighter/styles/shThemeDefault.css">
+	
+	<script src="js/traf.js"></script>
+	<script src="mathjax/MathJax.js" async></script>
+	<script src="syntaxhighlighter/scripts/shCore.js" defer></script>
+	<script src="syntaxhighlighter/scripts/shBrushCpp.js" defer></script>
+</head>
+<body contenteditable spellcheck>
+<div style="display:none">\[\def\({\left(}\def\){\right)}\]</div>
+<section>
+	<h2>Мой раздел</h2>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		Aenean id risus eu est vulputate consectetur. 
+		Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+		Sed ut suscipit ex. 
+		Curabitur nec nulla a dui tincidunt euismod vel in arcu. 
+		Vivamus maximus felis non risus mollis, sit amet mattis justo sagittis. 
+		Vestibulum odio mi, congue quis odio eu, viverra efficitur elit. 
+		Nulla tincidunt lacus elit, et mattis est posuere vel. 
+		Maecenas malesuada semper ipsum, nec tristique neque mattis quis. 
+		Etiam feugiat eleifend ipsum, nec sagittis risus tempus laoreet. 
+		In mollis erat sem, ac pharetra ligula tincidunt et. 
+		Curabitur cursus libero tortor, in fringilla nisl eleifend nec. 
+		Suspendisse mi urna, porttitor in aliquam et, tempor vel ex. 
+		Mauris consectetur nulla non diam cursus, sed hendrerit elit fermentum. 
+		Morbi nisi lectus, efficitur eget eleifend quis, pulvinar sed purus. 
+		Nullam ultrices lorem a tortor posuere dignissim. 
+		Quisque ut ullamcorper eros:
+	</p>
+	\begin{equation}\label{eq:eros}
+		E = mc^2.
+	\end{equation}
+	<p>
+		Aenean interdum vitae eros <span>\eqref{eq:eros}</span> ac auctor. 
+		Praesent convallis iaculis ante sed ultrices. 
+		Quisque vulputate ligula ut metus mollis suscipit. 
+		Donec metus odio, laoreet in dignissim sit amet, accumsan ac ligula. 
+		Quisque eu vehicula enim. 
+		Nam ultricies sem dolor, ut venenatis tortor efficitur sed. 
+		Curabitur feugiat arcu in faucibus lobortis:
+	</p>
+	\begin{equation}\label{eq:analit_speed_1}
+		\frac{d \upsilon_n \( t \) }{d t} = \frac{ \frac{1}{2}\upsilon_0 \( \tanh \( d-d_c \) +\tanh \( d_c \) \) - \upsilon_n \( t \) }{\tau},
+	\end{equation}
+	\begin{equation}\label{eq:analit_speed_2}
+		\frac{d \upsilon_n \( t \) }{d t} + \frac{ \upsilon_n \( t \) }{\tau} = \frac{ \upsilon_0 \( \tanh \( d-d_c \) +\tanh \( d_c \) \) }{2\tau}.
+	\end{equation}
+	<p>
+		Quisque euismod suscipit metus <span>\( \mu \left( t \right) = e^{\int \frac{1}{\tau} dt} = e^{{t}/{\tau}} \)</span> in accumsan.
+	</p>
+	
+	<section>
+		<h2>Подраздел</h2>			
+		<p>
+			The says the W3C's mission is <q cite="http://www.w3.org/Consortium/">To lead the...</q>. 
+			Цитата в цитате: <q>матрешка <q>матрешка</q> матрешка</q>.
+			Proin lacinia, risus et mattis luctus, lectus enim condimentum leo, sollicitudin finibus turpis urna ut felis. 
+			Sed sagittis nisi non ligula tempus, et condimentum dui consequat. 
+			Donec dictum auctor sem vel imperdiet. 
+			In lorem urna, gravida ut velit eu, consequat mollis mauris. 
+			Suspendisse mattis consectetur aliquam. 
+			Aliquam suscipit lectus eu lorem scelerisque auctor. 
+			Suspendisse vel tellus volutpat, semper arcu quis, cursus metus. 
+			Aenean eget neque nunc.
+		</p>
+	</section>
+	
+	<section>
+		<h2>Подраздел</h2>			
+		<p>
+			Nullam varius ut turpis eleifend hendrerit. 
+			Aliquam pulvinar nunc at mauris vestibulum scelerisque. 
+			Mauris tempor consequat mi ut pharetra. 
+			Aliquam convallis finibus nisl, vitae suscipit sapien egestas luctus. 
+			Morbi eu turpis a risus ultrices eleifend sit amet sit amet mi.
+		</p>
+		
+		<section>
+			<h2>ПодПодраздел</h2>			
+			<p>
+				Fusce rutrum, leo id fermentum semper, enim augue efficitur libero, in sodales sapien magna in purus. 
+				Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+				Phasellus faucibus sodales risus. 
+				Donec scelerisque nibh ligula, a ultrices lacus pulvinar sed. 
+				Curabitur congue ullamcorper ex eu accumsan. 
+				Pellentesque dictum eleifend magna et dapibus.
+			</p>
+		</section>
+	</section>
+	
+	<section>
+		<h2>Подраздел</h2>			
+		<p>
+			Phasellus iaculis nunc eget magna tincidunt aliquet.
+		</p>
+		<img id="test_car_speed" title="график скорости машин, оптимальная скорость 5 единиц на расстоянии 5 единиц" src="image/test_car_speed.png"/>
+		<p>
+			Nam egestas risus sit amet lorem suscipit, vitae dictum <span class="ref test_car_speed"></span> mauris blandit. 
+			Maecenas vitae libero facilisis, vulputate dolor nec, lacinia turpis. 
+			Ut luctus velit euismod urna luctus, vitae malesuada odio bibendum. 
+			Fusce non magna vel felis molestie scelerisque. 
+			Suspendisse imperdiet, libero quis commodo facilisis, neque urna iaculis dui, in ullamcorper eros libero nec mauris.
+		</p>
+		<pre id="parallel" title="использование OpenMP и Cilk Plus для распределения нагрузки по ядрам CPU"><code class="brush: cpp; highlight: [3]">
+int main()
+{
+#if !true
+	cilk_spawn calc_v2();
+	cilk_spawn calc_v2();
+#else
+	#pragma omp parallel sections
+	{
+		#pragma omp section
+		calc_v2();
+		#pragma omp section
+		calc_v2();
+	}
+#endif
+
+	return 0;
+}</code></pre>
+		<p>
+			Donec nibh dolor, pulvinar at fermentum <span class="ref parallel"></span> a, feugiat id enim. 
+			Nullam euismod lacus ac risus varius laoreet. 
+			Phasellus volutpat sit amet dolor quis faucibus. 
+			Donec id vehicula magna. 
+			Pellentesque lobortis ex risus, at fermentum arcu malesuada vitae. 
+			Vivamus ac justo eget mauris ullamcorper dictum. 
+			Fusce suscipit mauris lorem, non vehicula augue molestie at.
+		</p>
+		<p>
+			Mauris id ante mauris. 
+			Vestibulum massa enim, laoreet eget diam non, vulputate dignissim augue. 
+			Sed convallis nisi in egestas rhoncus: <code>function(<var>a</var>, <var>b</var>)</code>.
+		</p>
+	</section>
+</section>
+</body>
+</html>

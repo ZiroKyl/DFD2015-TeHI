@@ -1,0 +1,169 @@
+<!doctype html>
+<!-- use your webcam https://github.com/functino/reveal.js-wave-plugin -->
+<!-- http://blattchat.com/2012/09/26/reveal-js-with-css-custom-filters/ -->
+<!-- http://blattchat.com/2012/10/02/css-filterlab/ -->
+
+<!-- SVG Optimizer https://petercollingridge.appspot.com/svg-editor -->
+<!-- http://www.w3.org/TR/SVGTiny12/metadata.html#MetadataElement -->
+<!-- http://www.w3.org/TR/SVG11/metadata.html#Example -->
+
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>DFD2015 Omsk: TeHI - Hypertext Format for Scientific Writers</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal-dfd2015.css">
+	<link rel="stylesheet" href="css/theme/league-dfd2015.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel  = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild( link );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1><span>TeHI</span></h1>
+				<h3>Hypertext Format for Scientific Writers</h3>
+				<p>
+					<small>история создания</small>
+				</p>
+				<object data="img/start.svg" type="image/svg+xml"></object>
+			</section>
+			<section>
+				<section class="problem">
+					<h2>История Legacy</h2>
+					<img src="img/word1.svg" alt="W1: Каждый участник делает свою часть, общих стилей нет (кто-то использует стили, кто-то нет), у каждого из участников своя (не)любимая версия Word">
+				</section>
+				<section class="problem" data-transition="page">
+					<h2>История Legacy</h2>
+					<img src="img/word2.svg" alt="W2: Все части пересылаются по Email редактору (один из участников), он собирает их вместе...">
+				</section>
+				<section class="problem" data-transition="page">
+					<h2>История Legacy</h2>
+					<img src="img/word3.svg" alt="W3: ..., при этом все начинает ползти, он правит">
+				</section>
+				<section class="problem" data-transition="page">
+					<h2>История Legacy</h2>
+					<img src="img/word4.svg" alt="W4: Рассылает обратно собранный вариант, некоторым на прямую письмо не доходит - они берут документ другим путем">
+				</section>
+				<section class="problem" data-transition="page">
+					<h2>История Legacy</h2>
+					<img src="img/word5.svg" alt="W5: Так продолжается еще несколько итераций (1-2 недели)">
+				</section>
+			</section>
+			<section class="problem">
+				<h2>Разные требования к оформлению</h2>
+				<img src="img/x_journals.svg" alt="x Journals: Одна и та же информация каждый раз вручную переформатируется">
+			</section>
+			<section class="world-solution">
+				<h2>Как решили проблему в мире</h2>
+				<img src="img/world.svg" alt="World: [авторы пишут текст, попутно его размечая | верстальщики/дизайнеры создают стили для разметки + макет и общее оформление],[TeX]">
+			</section>
+			<section>
+				<section class="problem">
+					<h2>WYSIWYG vs прямая разметка содержимого</h2>
+					<img src="img/wysiwyg.svg" alt="WYSIWYG: 4 одинаковые на вид строчки">
+				</section>
+				<section class="world-solution">
+					<h2>Больше примеров</h2>
+					<img src="img/the_hott_book.svg" alt="The HoTT book: математики, книга 600 страниц: GitHub + TeX">
+				</section>
+			</section>
+			<section class="solution" data-transition="zoom">
+				<h2>Решение</h2>
+				<img src="img/html.svg" alt="HTML5: Хотелось более доступного и простого решения: просмотр в браузере, текстовый формат (git), структура (<section>), автор занят только содержимым и его разметкой (содержимое отделено от представления)">
+			</section>
+			<section class="todo" data-transition="zoom">
+				<h2>Что нужно было сделать</h2>
+				<img src="img/tehi.svg" alt="TeHI: [создать стили/обработчики (css/js) элементов, используемых в статьях (страница, абзац, заголовок, изображение, формула, ...), т.е. те, которые обычно можно встретить в TeX],[объединить простоту использования * (для разметки текста) и Markdown c HTML],[несколько уровней упрощения (+ обучения студентов HTML): TeHI – практически Markdown, TeHII, TeHIII – HTML5],[без обработки (js) документ должен быть валидным HTML]">
+			</section>
+			<section class="solution">
+				<h2>Интерактивный документ?!</h2>
+				<object data="img/interactive_doc.svg" type="image/svg+xml"></object>
+				<aside class="notes">
+					<p>т.к. мы уже выбрали HTML (отображение в браузере), то почему бы не сделать документ интерактивным?</p>
+					<p>проблема: часто диаграмму (Linux TCP-IP Performance on Long Fat-pipe.pdf - 31) хочется повернуть, представить в другом виде, найти значение в точке, ...</p>
+					<p>проблема: именование переменных в формуле VS именование переменных в коде программы: как сделать переменные в формулах понятнее (если их > 30), и при этом сохранить наглядность структуры формулы</p>
+					<p>сделать: диаграммы интерактивными</p>
+					<p>сделать: быстрый поиск/выделение переменных формулы по тексту, при клике на переменную в формуле + подсказку при наведении на переменную в формуле + глобальное переключение наименования переменных в тексте и в формуле (как в коде программы | компромисс | обычные формулы)</p>
+				</aside>
+			</section>
+			<section>
+				<section class="solution">
+					<h2>Поднимем гипертекст на новый уровень</h2>
+				</section>
+				<section class="problem">
+					<h2>В поисках развития мысли</h2>
+					<img src="img/hyper_text_up1.svg" alt="Hyper text UP1: хочется посмотреть на историю развития мысли (формулы, данных, текста, ...) всего лишь кликнув на объект (а не открывать список источников, искать этот источник/книгу, находить в нем конкретное место и так много итераций)">
+				</section>
+				<section class="world-solution">
+					<h2>Research 2.0+</h2>
+					<img src="img/hyper_text_up2.svg" alt="Hyper text UP2: [(банк данных белковых структур, фолдинг белков; определение класса галактики) в некоторых областях статьи/справочники были заменены на базы данных. Если ты получил новый результат, то просто загружаешь его в базу данных – всё очень быстро.],[долгий проект по установлению связей между текстами (вспомнить название и ссылку на хабре), и визуализации связи/правок в браузере]">
+				</section>
+				<section class="todo">
+					<h2>Глобальная система связей</h2>
+					<img src="img/hyper_text_up3.svg" alt="Hyper text UP3: создать систему (js на клиенте) пометки (по id элемента), поиска и отображения истории изменения объектов + модули загрузки объектов/данных из внешних источников">
+				</section>
+			</section>
+			<section class="solution">
+				<h2>Уважение к читающему</h2>
+				<img src="img/user_css.svg" alt="UserCSS: [по аналогии с требованиями журналов к оформлению, у читающего тоже есть свои предпочтения (несколько колонок, свой любимый шрифт, темный фон, ...)],[решение в мире: стили отображения кода в IDE],[дать возможность читающему использовать его собственные стили отображения],[реализовать подобие UserCSS]">
+			</section>
+			<section class="problem">
+				<h2>Выбор вида комментариев</h2>
+				<object data="img/comments.svg" type="image/svg+xml"></object>
+				<aside class="notes">подумать на тему комментариев как в Google Docs vs встроенной возможности комментировать на GitHub</aside>
+			</section>
+			<section class="solution">
+				<h2>Пример <span>TeHI</span></h2>
+				<p>
+					<small>То, что получилось реализовать за короткий промежуток времени (год назад): <a href="../TeHI-example/">пример</a>.</small>
+				</p>
+			</section>
+			<!--<section>
+				<h2>TeI</h2>
+				<p>
+					<a href="https://en.wikipedia.org/wiki/Text_Encoding_Initiative">Text Encoding Initiative</a>
+				</p>
+			</section>-->
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'cube',
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true }
+			]
+		});
+	</script>
+</body>
+</html>
